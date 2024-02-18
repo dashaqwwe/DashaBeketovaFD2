@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin-top: 50px;
+      }
+      div {
+        background-color: rgb(0, 0, 0);
+        padding: 20px;
+        margin: 0 auto;
+        width: 230px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      button {
+        background-color: transparent;
+        color: red;
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin: 10px;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: rgb(255, 255, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button onclick="f(1)">1</button>
+      <button onclick="f(2)">2</button>
+      <button onclick="f(3)">3</button><br />
+      <button onclick="f(4)">4</button>
+      <button onclick="f(5)">5</button>
+      <button onclick="f(6)">6</button><br />
+      <button onclick="f(7)">7</button>
+      <button onclick="f(8)">8</button>
+      <button onclick="f(9)">9</button><br />
+      <button onclick="f(0)">0</button>
+      <button onclick="getSign('+')">+</button>
+      <button onclick="getSign('-')">-</button><br />
+      <button onclick="getSign('/')">/</button>
+      <button onclick="getSign('*')">*</button>
+      <button onclick="getResult('=')">=</button>
+    </div>
+    <script>
+
+      let num1 = null;
+      let num2 = null;
+      let sign;
+
+      function f(num) {
+        if (num1 === null) {
+          num1 = num;
+        } else {
+          num2 = num;
+        }
+      }
+      
+      function getSign(s) {
+        sign = s;
+      }
+      
+      function getResult() {
+        switch (sign) {
+          case "+":
+            console.log(num1 + num2);
+            break;
+          case "-":
+            console.log(num1 - num2);
+            break;
+          case "*":
+            console.log(num1 * num2);
+            break;
+          case "/":
+            console.log(num1 / num2);
+            break;
+        }
+      }
+      
+    </script>
+  </body>
+</html>
