@@ -30,27 +30,77 @@
       //       }
       //     }
       //   }
-    //   let myBoard = [
-    //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-    //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-    //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-    //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-    //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-    //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-    //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-    //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
-    //   ];
+      //   let myBoard = [
+      //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
+      //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
+      //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
+      //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
+      //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
+      //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
+      //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
+      //     ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"],
+      //   ];
 
-    //   function showBoard(board) {
-    //     for (let row = 0; row < board.length; row++) {
-    //       let rowStr = row + 1 + ") ";
-    //       for (let col = 0; col < board[row].length; col++)
-    //         rowStr += board[row][col] + " ";
-    //       console.log(rowStr);
-    //     }
-    //   }
+      //   function showBoard(board) {
+      //     for (let row = 0; row < board.length; row++) {
+      //       let rowStr = row + 1 + ") ";
+      //       for (let col = 0; col < board[row].length; col++)
+      //         rowStr += board[row][col] + " ";
+      //       console.log(rowStr);
+      //     }
+      //   }
 
-    //   showBoard(myBoard);
+      //   showBoard(myBoard);
+      // try {
+      //   try {
+      //     let a;
+      //     a = b;
+      //   } catch (ex) {
+      //     throw ex;
+      //   }
+      // } catch (ex) {
+      //   console.error(ex.name);
+      //   console.error(ex.message);
+      // }
+      // let c = 5;
+      // console.log(c);
+      // let b = null;
+      // function f() {
+      //   const a = 5;
+      //   function ff() {
+      //     console.log(`${a} переменная a`);
+      //   }
+      //   b = ff;
+      // }
+      // f()
+      // b()
+
+      // const itemsInCart = [
+      //   { product: "Носки", quantity: 3 },
+      //   { product: "Штаны", quantity: 1 },
+      //   { product: "Кепка", quantity: 1 },
+      // ];
+      // const clonedCart = structuredClone(itemsInCart);
+      // console.log(clonedCart);
+      // console.log(itemsInCart);
+      // clonedCart[0].quantity = 10;
+      // console.log(clonedCart);
+      // console.log(itemsInCart);
+
+      const array = [
+        { product: "Носки", quantity: 3 },
+        { product: "Штаны", quantity: 1 },
+        { product: "Кепка", quantity: 1 },
+      ];
+
+      const arrayCopy = [];
+
+      for (let i = 0; i < array.length; i++) {
+        arrayCopy[i] = array[i];
+      }
+
+      console.log(arrayCopy); 
+      console.log(array === arrayCopy); 
     </script>
   </body>
 </html>
