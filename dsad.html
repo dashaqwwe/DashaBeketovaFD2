@@ -87,20 +87,47 @@
       // console.log(clonedCart);
       // console.log(itemsInCart);
 
-      const array = [
-        { product: "Носки", quantity: 3 },
-        { product: "Штаны", quantity: 1 },
-        { product: "Кепка", quantity: 1 },
-      ];
+      // const array = [
+      //   { product: "Носки", quantity: 3 },
+      //   { product: "Штаны", quantity: 1 },
+      //   { product: "Кепка", quantity: 1 },
+      // ];
 
-      const arrayCopy = [];
+      // const arrayCopy = [];
 
-      for (let i = 0; i < array.length; i++) {
-        arrayCopy[i] = array[i];
+      // for (let i = 0; i < array.length; i++) {
+      //   arrayCopy[i] = array[i];
+      // }
+
+      // console.log(arrayCopy);
+      // console.log(array === arrayCopy);
+
+
+      let text = "This website is for losers LOL!";
+      function disemvowel(str) {
+        let vowels = [
+          "A",
+          "E",
+          "I",
+          "O",
+          "U",
+          "Y",
+          "a",
+          "e",
+          "i",
+          "o",
+          "u",
+          "y",
+        ];
+        let newStr = "";
+        for (let i = 0; i < str.length; i++) {
+          if (!vowels.includes(str[i])) {
+            newStr += str[i];
+          }
+        }
+        return newStr;
       }
-
-      console.log(arrayCopy); 
-      console.log(array === arrayCopy); 
+      console.log(disemvowel(text));
     </script>
   </body>
 </html>
