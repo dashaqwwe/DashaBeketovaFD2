@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const letter = "abcd";
+      function accum(str) {
+        const letters = str.split("");
+        let strings = [];
+        for (let i = 0; i < letters.length; i++) {
+          let s = "";
+          let letter = letters[i].toLowerCase();
+          for (let k = 0; k < i; k++) {
+            s += letter;
+          }
+          s = letter.toUpperCase() + s;
+          strings.push(s);
+        }
+        return strings.join("-");
+      }
+      console.log(accum(letter));
+
+      //   ПРИКОЛЬНЫЙ ВАРИАНТ РЕШЕНИЯ
+      //   const letter = "abcd";
+      //   function accum(s) {
+      //     var array = [];
+      //     for (i = 0; i < s.length; i++) {
+      //       array.push(
+      //         s.charAt(i).toUpperCase() + s.charAt(i).toLowerCase().repeat(i)
+      //       );
+      //     }
+      //     return array.join("-");
+      //   }
+      //   console.log(accum(letter));
+    </script>
+  </body>
+</html>

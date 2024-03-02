@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let text = "This website is for losers LOL!";
+      function disemvowel(str) {
+        let vowels = [
+          "A",
+          "E",
+          "I",
+          "O",
+          "U",
+          "Y",
+          "a",
+          "e",
+          "i",
+          "o",
+          "u",
+          "y",
+        ];
+        let newStr = "";
+        for (let i = 0; i < str.length; i++) {
+          if (!vowels.includes(str[i])) {
+            newStr += str[i];
+          }
+        }
+        return newStr;
+      }
+      console.log(disemvowel(text));
+    </script>
+  </body>
+</html>

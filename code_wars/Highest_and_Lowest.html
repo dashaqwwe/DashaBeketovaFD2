@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let str = "8 3 -5 42 -1 0 0 -9 4 7 4 -4";
+      function highAndLow(numbers) {
+        let spl = numbers.split(" ");
+        return `${Math.max(...spl)} ${Math.min(...spl)}`;
+      }
+      console.log(highAndLow(str));
+
+      // ПРИКОЛЬНЫЙ ВАРИАНТ РЕШЕНИЯ
+      // let str = "8 3 -5 42 -1 0 0 -9 4 7 4 -4";
+      // function highAndLow(numbers) {
+      //   var numArray = numbers.split(" ");
+      //   var max = Number(numArray[0]);
+      //   var min = Number(numArray[0]);
+      //   var num;
+
+      //   for (var i = 1; i < numArray.length; i++) {
+      //     num = Number(numArray[i]);
+
+      //     if (num > max) max = num;
+      //     if (num < min) min = num;
+      //   }
+
+      //   return max + " " + min;
+      // }
+      // console.log(highAndLow(str));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const letter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      function calc(x) {
+        let str = "";
+        result = 0;
+        for (let i = 0; i < x.length; i++) {
+          str += x.charCodeAt(i);
+        }
+        for (let k = 0; k < str.length; k++) {
+          if (str[k] === "7") {
+            result += 6;
+          }
+        }
+        return result;
+      }
+      console.log(calc(letter));
+    </script>
+  </body>
+</html>
