@@ -1,10 +1,9 @@
-// const word = prompt("Введите слово для подсчета гласных букв");
+const word = prompt("Введите слово для подсчета гласных букв");
 
 // ФУНКЦИЯ filter
 
 function grab1(str) {
   const arr = ["а", "у", "о", "ы", "и", "э", "я", "ю", "ё", "е"];
-  let summ = 0;
   const string = str.toLowerCase().split("");
   result = string.filter((v) => arr.includes(v));
   return console.log(result.length);
@@ -29,7 +28,6 @@ function grab2(str) {
 function grab3(str) {
   const arr = ["а", "у", "о", "ы", "и", "э", "я", "ю", "ё", "е"];
   const string = str.toLowerCase().split("");
-
   return string.reduce((r, v) => {
     if (arr.includes(v)) {
       r += 1;
@@ -37,4 +35,4 @@ function grab3(str) {
     return r;
   }, 0);
 }
-// console.log(grab3(word));
+console.log(grab3(word));
