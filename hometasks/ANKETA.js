@@ -36,7 +36,7 @@ if (pol == "женский" && age >= 58) {
   old = "нет";
 }
 
-const fullName = name + name2 + name3;
+const fullName = name + ' ' + name2 + ' ' + name3;
 
 alert(
   `Ваше ФИО: ${fullName} \n Ваш возраст в годах: ${age} \n Ваш возраст в днях: ${age2} \n Через 5 лет вам будет: ${future} \n Ваш пол: ${pol} \n Вы на пенсии: ${old}`
