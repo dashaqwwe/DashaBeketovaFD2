@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .area {
+        width: 300px;
+        height: 300px;
+        background-color: rgb(0, 0, 0);
+        position: relative;
+      }
+      .square {
+        width: 30px;
+        height: 30px;
+        background-color: rgb(197, 99, 206);
+        border-radius: 50%;
+        position: absolute;
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="area">
+      <div class="square"></div>
+    </div>
+
+    <script>
+      const area = document.querySelector(".area");
+      const square = document.querySelector(".square");
+
+      let x = 0;
+
+      window.addEventListener("keydown", (e) => {
+        switch (e.keyCode) {
+          case 38: {
+            if (square.offsetTop === 0) {
+              square.style.top = square.offsetTop + 10 + "px";
+              break;
+            } else square.style.top = square.offsetTop - 10 + "px";
+            console.log(square.offsetTop);
+            break;
+          }
+          case 40: {
+            if (square.offsetTop === 270) {
+              square.style.top = square.offsetTop - 10 + "px";
+              break;
+            } else square.style.top = square.offsetTop + 10 + "px";
+            console.log(square.offsetTop);
+            break;
+          }
+          case 37: {
+            if (square.offsetLeft === 0) {
+              square.style.left = square.offsetLeft + 10 + "px";
+              break;
+            } else square.style.left = square.offsetLeft - 10 + "px";
+            console.log(square.offsetLeft);
+            break;
+          }
+          case 39: {
+            if (square.offsetLeft === 270) {
+              square.style.left = square.offsetLeft - 10 + "px";
+              break;
+            } else square.style.left = square.offsetLeft + 10 + "px";
+            console.log(square.offsetLeft);
+            break;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
