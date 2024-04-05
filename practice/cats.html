@@ -18,66 +18,66 @@
     </style>
   </head>
   <body>
-    <input type="text" id="brand" /> <br />
-    <input type="text" id="model" /> <br />
+    <input type="text" id="name" /> <br />
+    <input type="text" id="age" /> <br />
     <input type="text" id="imgUrl" /> <br />
     <textarea id="descr"></textarea>
     <input type="submit" onclick="getData()" />
 
     <hr />
-    <div id="app"></div>
+    <div id="cat"></div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
     <script>
-      const el = document.getElementById("app");
-      let cars = [];
+      const el = document.getElementById("cat");
+      let cats = [];
 
       function getData() {
-        const brand = document.getElementById("brand");
-        const model = document.getElementById("model");
+        const name = document.getElementById("name");
+        const age = document.getElementById("age");
         const imgUrl = document.getElementById("imgUrl");
         const descr = document.getElementById("descr");
 
         const item = {
           id: Math.random().toString().split(".")[1],
-          brand: brand.value,
-          model: model.value,
+          name: name.value,
+          age: age.value,
           imgUrl: imgUrl.value,
           descr: descr.value,
         };
-        cars.push(item);
+        cats.push(item);
         view();
       }
       function view() {
         const card = document.querySelectorAll(".card");
-        const app = document.querySelector("#app");
+        const cat = document.querySelector("#cat");
         if (card.length > 0) {
-          app.innerHTML = "";
+          cat.innerHTML = "";
         }
 
-        for (let i = 0; i < cars.length; i++) {
+        for (let i = 0; i < cats.length; i++) {
           createCard(
-            cars[i].imgUrl,
-            cars[i].brand,
-            cars[i].model,
-            cars[i].descr,
-            cars[i].id
+            cats[i].imgUrl,
+            cats[i].name,
+            cats[i].age,
+            cats[i].descr,
+            cats[i].id
           );
         }
       }
 
       const deleteCard = (e) => {
         const { id } = e.currentTarget.dataset;
-        const filteredCard = cars.filter((car) => car.id !== id);
-        cars = [...filteredCard];
+        const filteredCard = cats.filter((cat) => cat.id !== id);
+        cats = [...filteredCard];
         view();
       };
 
       const createCard = (...data) => {
-        const [imgUrl, brand, model, descr, id] = data;
+        const [imgUrl, name, age, descr, id] = data;
 
         const divCard = document.createElement("div");
         divCard.setAttribute("class", "card");
@@ -91,7 +91,7 @@
         divBody.setAttribute("class", "card-body");
         const h5 = document.createElement("h5");
         h5.setAttribute("class", "card-title");
-        const h5Text = document.createTextNode(`${brand} ${model}`);
+        const h5Text = document.createTextNode(`${name} ${age}`);
         h5.appendChild(h5Text);
         const p = document.createElement("p");
         p.setAttribute("class", "card-text");
