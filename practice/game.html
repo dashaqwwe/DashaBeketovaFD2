@@ -42,6 +42,7 @@
             timer = setInterval(() => {
               if (square.offsetTop === 0) {
                 square.style.top = square.offsetTop + 10 + "px";
+                clearInterval(timer);
               } else square.style.top = square.offsetTop - 10 + "px";
             }, 16);
             break;
@@ -54,8 +55,10 @@
             timer = setInterval(() => {
               if (square.offsetTop === 270) {
                 square.style.top = square.offsetTop - 10 + "px";
+                clearInterval(timer);
               } else square.style.top = square.offsetTop + 10 + "px";
             }, 16);
+            break;
           }
           case 37: {
             if (timer) {
@@ -65,6 +68,7 @@
             timer = setInterval(() => {
               if (square.offsetLeft === 0) {
                 square.style.left = square.offsetLeft + 10 + "px";
+                clearInterval(timer);
               } else square.style.left = square.offsetLeft - 10 + "px";
             }, 16);
             break;
@@ -77,6 +81,7 @@
             timer = setInterval(() => {
               if (square.offsetLeft === 270) {
                 square.style.left = square.offsetLeft - 10 + "px";
+                clearInterval(timer);
               } else square.style.left = square.offsetLeft + 10 + "px";
             }, 16);
             break;
