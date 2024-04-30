@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* .card-img-top {
+        width: 300px;
+        height: 200px;
+      } */
+    </style>
+  </head>
+  <body>
+    <div id="div"></div>
+    <script>
+      const div = document.getElementById("div");
+      window.addEventListener("storage", (...other) => {
+        const { newValue } = other[0];
+        const animalsArr = JSON.parse(newValue) || [];
+        const str = animalsArr.reduce((acc, value) => {
+          return (acc += `
+<div class="card" style="width: 18rem;">
+  <img src="${value.imgUrl} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h1 class="card-title">${value.animal}</h1>
+    <h4 class="card-title">${value.breed}</h4>
+    <h5 class="card-title">${value.price}</h5>
+    <p class="card-text">${value.descr}</p>
+    <a href="#" class="btn btn-primary">Купить</a>
+  </div>
+</div>`);
+        }, "");
+        div.innerHTML = str;
+      });
+    </script>
+  </body>
+</html>

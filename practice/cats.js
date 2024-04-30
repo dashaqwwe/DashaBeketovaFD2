@@ -171,3 +171,21 @@ filter.addEventListener("input", (e) => {
   );
   view(filteredCard);
 });
+
+function local() {
+  const animal = document.getElementById("animal").value;
+  const breed = document.getElementById("breed").value;
+  const imgUrl = document.getElementById("imgUrl").value;
+  const price = document.getElementById("price").value;
+  const descr = document.getElementById("descr").value;
+  const animals = JSON.parse(localStorage.getItem("users")) || [];
+  animals.push({
+    animal,
+    breed,
+    imgUrl,
+    price,
+    descr,
+  });
+  localStorage.setItem("animals", JSON.stringify(animals));
+  console.log(animals);
+}
