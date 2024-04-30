@@ -178,7 +178,7 @@ function local() {
   const imgUrl = document.getElementById("imgUrl").value;
   const price = document.getElementById("price").value;
   const descr = document.getElementById("descr").value;
-  const animals = JSON.parse(localStorage.getItem("users")) || [];
+  const animals = JSON.parse(localStorage.getItem("animals")) || [];
   animals.push({
     animal,
     breed,
