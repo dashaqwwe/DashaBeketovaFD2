@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>DRINKS_LOC_STORAGE</title>
+    <style>
+      .div {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div">
+      <form>
+        <input
+          type="button"
+          value="Ввод информации о напитке"
+          onclick="clickGetValue()"
+        />
+        <br />
+        <input
+          type="button"
+          value="Получение информации о напитке"
+          onclick="clickInfoValue()"
+        />
+        <br />
+        <input
+          type="button"
+          value="Удаление информации о напитке"
+          onclick="clickDeleteValue()"
+        />
+        <br />
+        <input
+          type="button"
+          value="Перечень всех напитков"
+          onclick="clickGetKeys()"
+        />
+      </form>
+      <hr />
+      <form>
+        <input
+          type="button"
+          value="Ввод информации о блюде"
+          onclick="clickGetValueDish()"
+        />
+        <br />
+        <input
+          type="button"
+          value="Получение информации о блюде"
+          onclick="clickInfoValueDish()"
+        />
+        <br />
+        <input
+          type="button"
+          value="Удаление информации о блюде"
+          onclick="clickDeleteValueDish()"
+        />
+        <br />
+        <input
+          type="button"
+          value="Перечень всех блюд"
+          onclick="clickGetKeysDish()"
+        />
+      </form>
+    </div>
+    <script src="local.js"></script>
+  </body>
+</html>
