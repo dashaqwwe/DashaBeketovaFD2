@@ -94,10 +94,10 @@
         if (callresult.error != undefined) alert(callresult.error);
         else if (callresult.result != "") {
           const info = JSON.parse(callresult.result);
-          document.getElementById("IName").value = info[0].name;
-          document.getElementById("IAge").value = info[0].age;
-          document.getElementById("ICity").value = info[0].city;
-          document.getElementById("IPet").value = info[0].pet;
+          document.getElementById("IName").value = info[info.length - 1].name;
+          document.getElementById("IAge").value = info[info.length - 1].age;
+          document.getElementById("ICity").value = info[info.length - 1].city;
+          document.getElementById("IPet").value = info[info.length - 1].pet;
         }
       }
 
