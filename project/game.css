@@ -1,55 +1,54 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  background-color: black;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: darkslateblue;
+  font-family: "Mate SC", serif;
 }
-body .container {
+body #particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+body #page-wrapper {
   position: relative;
+  z-index: 2;
+  background-color: rgb(53, 51, 51);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 30px;
   padding: 40px 60px;
-  background-color: rgb(101, 89, 182);
 }
-body .container span {
+body #page-wrapper span {
   font-size: 3em;
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-family: "Jacquard 12", system-ui;
 }
-body .container .reset {
+body #page-wrapper .button {
   padding: 15px 20px;
+  color: black;
+  background-color: rgb(91, 87, 87);
   border: none;
-  font-size: 1.5em;
-  color: rgb(101, 89, 182);
+  font-size: 1em;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 600;
   cursor: pointer;
-  background-color: white;
+  font-weight: 600;
 }
-body .container .reset:focus {
+body #page-wrapper .button:focus {
   color: white;
-  background-color: rgb(124, 111, 207);
-}
-body .container .game {
-  width: 450px;
-  height: 450px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  transform-style: preserve-3d;
-  perspective: 500px;
+  background-color: rgb(66, 63, 63);
 }/*# sourceMappingURL=game.css.map */
