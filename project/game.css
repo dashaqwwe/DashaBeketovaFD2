@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: black;
+  background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -34,14 +34,14 @@ body #page-wrapper {
 }
 body #page-wrapper span {
   font-size: 3em;
-  color: black;
+  color: #69b7eb;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 body #page-wrapper .button {
   padding: 15px 20px;
   color: white;
-  background-color: black;
+  background-color: #69b7eb;
   border: none;
   font-size: 1em;
   letter-spacing: 0.5em;
@@ -50,6 +50,50 @@ body #page-wrapper .button {
   font-weight: 600;
 }
 body #page-wrapper .button:focus {
-  color: black;
+  color: #69b7eb;
   background-color: white;
+}
+body #page-wrapper .game {
+  width: 450px;
+  height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+body #page-wrapper .game .item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s;
+  transform: rotateY(180deg);
+}
+body #page-wrapper .game .item img {
+  width: 100px;
+  height: 100px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+body #page-wrapper .game .item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #f4d6db;
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+body #page-wrapper .game .item.boxOpen {
+  transform: rotateY(0deg);
+}
+body #page-wrapper .game .item.boxOpen::after {
+  transform: rotateY(180deg);
+}
+body #page-wrapper .game .item.boxMatch::after {
+  transform: rotateY(180deg);
 }/*# sourceMappingURL=game.css.map */

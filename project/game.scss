@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: black;
+  background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -31,14 +31,14 @@ body {
     border-radius: 25px;
     span {
       font-size: 3em;
-      color: black;
+      color: #69b7eb;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
     .button {
       padding: 15px 20px;
       color: white;
-      background-color: black;
+      background-color: #69b7eb;
       border: none;
       font-size: 1em;
       letter-spacing: 0.5em;
@@ -46,8 +46,53 @@ body {
       cursor: pointer;
       font-weight: 600;
       &:focus {
-        color: black;
+        color: #69b7eb;
         background-color: white;
+      }
+    }
+    .game {
+      width: 450px;
+      height: 450px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      transform-style: preserve-3d;
+      perspective: 500px;
+      .item {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.25s;
+        transform: rotateY(180deg);
+        img {
+          width: 100px;
+          height: 100px;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-color: #f4d6db;
+          transition: 0.25s;
+          transform: rotateY(0deg);
+          backface-visibility: hidden;
+        }
+        &.boxOpen {
+          transform: rotateY(0deg);
+          &::after {
+            transform: rotateY(180deg);
+          }
+        }
+        &.boxMatch::after {
+          transform: rotateY(180deg);
+        }
       }
     }
   }
