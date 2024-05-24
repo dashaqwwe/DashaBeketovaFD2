@@ -1,35 +1,4 @@
-window.onhashchange = switchToStateFromURLHash;
 
-let SPAState = {};
-
-function switchToStateFromURLHash() {
-  let URLHash = window.location.hash;
-
-  let stateStr = URLHash.substring(1);
-
-  if (stateStr != "") {
-    let parts = stateStr.split("_");
-    SPAState = { pagename: parts[0] };
-    SPAState.id = parts[1];
-  }
-}
-
-function switchToState(newState) {
-  let stateStr = newState.pagename;
-  stateStr += "_" + newState.id;
-  location.hash = stateStr;
-}
-
-function switchToLevelPage(id) {
-  switchToState({ pagename: "Level", id: id });
-  if (id == 1) {
-    console.log("1 lvl");
-  } else {
-    console.log("2 lvl");
-  }
-}
-
-switchToStateFromURLHash();
 
 const bodyColl = document.getElementsByTagName("body");
 const body = bodyColl[0];
