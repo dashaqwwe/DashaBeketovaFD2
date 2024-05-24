@@ -38,6 +38,36 @@ body #page-wrapper span {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+body #page-wrapper input[type=button] {
+  padding: 10px 15px;
+  color: white;
+  background-color: #69b7eb;
+  border: none;
+  font-size: 1em;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+}
+body #page-wrapper input[type=button]:focus {
+  color: #69b7eb;
+  background-color: white;
+}
+body #page-wrapper .musicBtn {
+  padding: 5px 10px;
+  color: white;
+  background-color: #69b7eb;
+  border: none;
+  font-size: 1em;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+}
+body #page-wrapper .musicBtn:hover {
+  color: #69b7eb;
+  background-color: white;
+}
 body #page-wrapper .button {
   padding: 15px 20px;
   color: white;
@@ -54,8 +84,6 @@ body #page-wrapper .button:focus {
   background-color: white;
 }
 body #page-wrapper .game {
-  width: 450px;
-  height: 450px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

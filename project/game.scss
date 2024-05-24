@@ -35,6 +35,36 @@ body {
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
+    input[type="button"] {
+      padding: 10px 15px;
+      color: white;
+      background-color: #69b7eb;
+      border: none;
+      font-size: 1em;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-weight: 600;
+      &:focus {
+        color: #69b7eb;
+        background-color: white;
+      }
+    }
+    .musicBtn {
+      padding: 5px 10px;
+      color: white;
+      background-color: #69b7eb;
+      border: none;
+      font-size: 1em;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-weight: 600;
+      &:hover {
+        color: #69b7eb;
+        background-color: white;
+      }
+    }
     .button {
       padding: 15px 20px;
       color: white;
@@ -51,8 +81,8 @@ body {
       }
     }
     .game {
-      width: 450px;
-      height: 450px;
+      // width: 450px;
+      // height: 450px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
