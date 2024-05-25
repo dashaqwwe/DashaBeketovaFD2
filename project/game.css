@@ -38,37 +38,7 @@ body #page-wrapper span {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-body #page-wrapper input[type=button] {
-  padding: 10px 15px;
-  color: white;
-  background-color: #69b7eb;
-  border: none;
-  font-size: 1em;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-weight: 600;
-}
-body #page-wrapper input[type=button]:focus {
-  color: #69b7eb;
-  background-color: white;
-}
-body #page-wrapper .musicBtn {
-  padding: 5px 10px;
-  color: white;
-  background-color: #69b7eb;
-  border: none;
-  font-size: 1em;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-weight: 600;
-}
-body #page-wrapper .musicBtn:hover {
-  color: #69b7eb;
-  background-color: white;
-}
-body #page-wrapper .button {
+body #page-wrapper button {
   padding: 15px 20px;
   color: white;
   background-color: #69b7eb;
@@ -79,13 +49,20 @@ body #page-wrapper .button {
   cursor: pointer;
   font-weight: 600;
 }
-body #page-wrapper .button:focus {
+body #page-wrapper button:focus {
   color: #69b7eb;
   background-color: white;
+}
+body #page-wrapper button.settings {
+  padding: 10px 15px;
+}
+body #page-wrapper button.menuBtn {
+  padding: 10px 15px;
 }
 body #page-wrapper .game {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   transform-style: preserve-3d;
   perspective: 500px;
@@ -106,22 +83,4 @@ body #page-wrapper .game .item img {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-}
-body #page-wrapper .game .item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: #f4d6db;
-  transition: 0.25s;
-  transform: rotateY(0deg);
-  backface-visibility: hidden;
-}
-body #page-wrapper .game .item.boxOpen {
-  transform: rotateY(0deg);
-}
-body #page-wrapper .game .item.boxOpen::after {
-  transform: rotateY(180deg);
-}
-body #page-wrapper .game .item.boxMatch::after {
-  transform: rotateY(180deg);
 }/*# sourceMappingURL=game.css.map */

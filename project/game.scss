@@ -35,37 +35,37 @@ body {
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
-    input[type="button"] {
-      padding: 10px 15px;
-      color: white;
-      background-color: #69b7eb;
-      border: none;
-      font-size: 1em;
-      letter-spacing: 0.5em;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-weight: 600;
-      &:focus {
-        color: #69b7eb;
-        background-color: white;
-      }
-    }
-    .musicBtn {
-      padding: 5px 10px;
-      color: white;
-      background-color: #69b7eb;
-      border: none;
-      font-size: 1em;
-      letter-spacing: 0.5em;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-weight: 600;
-      &:hover {
-        color: #69b7eb;
-        background-color: white;
-      }
-    }
-    .button {
+    // input[type="button"] {
+    //   padding: 10px 15px;
+    //   color: white;
+    //   background-color: #69b7eb;
+    //   border: none;
+    //   font-size: 1em;
+    //   letter-spacing: 0.5em;
+    //   text-transform: uppercase;
+    //   cursor: pointer;
+    //   font-weight: 600;
+    //   &:focus {
+    //     color: #69b7eb;
+    //     background-color: white;
+    //   }
+    // }
+    // .musicBtn {
+    //   padding: 5px 10px;
+    //   color: white;
+    //   background-color: #69b7eb;
+    //   border: none;
+    //   font-size: 1em;
+    //   letter-spacing: 0.5em;
+    //   text-transform: uppercase;
+    //   cursor: pointer;
+    //   font-weight: 600;
+    //   &:hover {
+    //     color: #69b7eb;
+    //     background-color: white;
+    //   }
+    // }
+    button {
       padding: 15px 20px;
       color: white;
       background-color: #69b7eb;
@@ -79,12 +79,19 @@ body {
         color: #69b7eb;
         background-color: white;
       }
+      &.settings {
+        padding: 10px 15px;
+      }
+      &.menuBtn {
+        padding: 10px 15px;
+      }
     }
     .game {
       // width: 450px;
       // height: 450px;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
       transform-style: preserve-3d;
       perspective: 500px;
@@ -105,24 +112,24 @@ body {
           -ms-user-select: none;
           user-select: none;
         }
-        &::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background-color: #f4d6db;
-          transition: 0.25s;
-          transform: rotateY(0deg);
-          backface-visibility: hidden;
-        }
-        &.boxOpen {
-          transform: rotateY(0deg);
-          &::after {
-            transform: rotateY(180deg);
-          }
-        }
-        &.boxMatch::after {
-          transform: rotateY(180deg);
-        }
+        // &::after {
+        //   content: "";
+        //   position: absolute;
+        //   inset: 0;
+        //   background-color: #f4d6db;
+        //   transition: 0.25s;
+        //   transform: rotateY(0deg);
+        //   backface-visibility: hidden;
+        // }
+        // &.boxOpen {
+        //   transform: rotateY(0deg);
+        //   &::after {
+        //     transform: rotateY(180deg);
+        //   }
+        // }
+        // &.boxMatch::after {
+        //   transform: rotateY(180deg);
+        // }
       }
     }
   }
