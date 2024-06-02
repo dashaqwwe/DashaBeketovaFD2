@@ -112,24 +112,24 @@ body {
           -ms-user-select: none;
           user-select: none;
         }
-        // &::after {
-        //   content: "";
-        //   position: absolute;
-        //   inset: 0;
-        //   background-color: #f4d6db;
-        //   transition: 0.25s;
-        //   transform: rotateY(0deg);
-        //   backface-visibility: hidden;
-        // }
-        // &.boxOpen {
-        //   transform: rotateY(0deg);
-        //   &::after {
-        //     transform: rotateY(180deg);
-        //   }
-        // }
-        // &.boxMatch::after {
-        //   transform: rotateY(180deg);
-        // }
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-color: #f4d6db;
+          transition: 0.25s;
+          transform: rotateY(0deg);
+          backface-visibility: hidden;
+        }
+        &.boxOpen {
+          transform: rotateY(0deg);
+          &::after {
+            transform: rotateY(180deg);
+          }
+        }
+        &.boxMatch::after {
+          transform: rotateY(180deg);
+        }
       }
     }
   }

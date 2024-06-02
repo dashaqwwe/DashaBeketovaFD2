@@ -29,6 +29,7 @@ body #page-wrapper {
   align-items: center;
   flex-direction: column;
   gap: 30px;
+
   padding: 40px 60px;
   border-radius: 25px;
 }
@@ -38,31 +39,27 @@ body #page-wrapper span {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-body #page-wrapper button {
+body #page-wrapper .button {
   padding: 15px 20px;
   color: white;
   background-color: #69b7eb;
   border: none;
   font-size: 1em;
   letter-spacing: 0.5em;
+
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 600;
 }
-body #page-wrapper button:focus {
+body #page-wrapper .button:focus {
   color: #69b7eb;
   background-color: white;
 }
-body #page-wrapper button.settings {
-  padding: 10px 15px;
-}
-body #page-wrapper button.menuBtn {
-  padding: 10px 15px;
-}
 body #page-wrapper .game {
+  width: 450px;
+  height: 450px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
   transform-style: preserve-3d;
   perspective: 500px;
@@ -101,4 +98,4 @@ body #page-wrapper .game .item.boxOpen::after {
 }
 body #page-wrapper .game .item.boxMatch::after {
   transform: rotateY(180deg);
-}/*# sourceMappingURL=game.css.map */
+}

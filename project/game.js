@@ -22,14 +22,13 @@ let sortPictures = pictures.sort(() => (Math.random() > 0.5 ? 2 : -1));
 window.onhashchange = switchToStateFromURLHash;
 
 const wrapper = document.getElementById("page-wrapper");
-// const game = document.querySelector(".game");
 
 let spaState = {};
 
 function switchToStateFromURLHash() {
   const URLHash = window.location.hash;
   const stateStr = URLHash.substring(1);
-  if (stateStr != "") {
+  if (stateStr !== "") {
     let parts = stateStr.split("_");
     spaState = { pagename: parts[0] };
   } else spaState = { pagename: "Main" };
@@ -46,68 +45,126 @@ function switchToStateFromURLHash() {
       pageHTML += renderGamePage();
       break;
     case "1":
-      let div = document.createElement("div");
-      div.classList.add("game");
-      sortPictures.forEach((i) => {
-        let img = document.createElement("img");
-        let box = document.createElement("div");
-        box.className = "item";
-        img.setAttribute("src", i);
-        img.draggable = false;
-        box.appendChild(img);
-        div.appendChild(box);
-
-        box.onclick = function () {
-          console.log('------------');
-          box.classList.add("boxOpen");
-          setTimeout(function () {
-            try {
-              if (document.querySelectorAll(".boxOpen").length - 1) {
-                if (
-                  document.querySelectorAll(".boxOpen")[0].innerHTML ==
-                  document.querySelectorAll(".boxOpen")[1].innerHTML
-                ) {
-                  document
-                    .querySelectorAll(".boxOpen")[0]
-                    .classList.add("boxMatch");
-                  document
-                    .querySelectorAll(".boxOpen")[1]
-                    .classList.add("boxMatch");
-                  document
-                    .querySelectorAll(".boxOpen")[1]
-                    .classList.remove("boxOpen");
-                  document
-                    .querySelectorAll(".boxOpen")[0]
-                    .classList.remove("boxOpen");
-                  if (
-                    document.querySelectorAll(".boxMatch").length ==
-                    pictures.length
-                  ) {
-                    alert("win");
-                  }
-                } else {
-                  document
-                    .querySelectorAll(".boxOpen")[1]
-                    .classList.remove("boxOpen");
-                  document
-                    .querySelectorAll(".boxOpen")[0]
-                    .classList.remove("boxOpen");
-                }
-              }
-            } catch (e) {
-              console.log(e);
-            }
-          }, 500);
-        };
-      });
-      let game = div.outerHTML;
-      pageHTML += `${game} ${renderLvlPage(1)}`;
+      pageHTML += renderGameLevel1();
       break;
     case "2":
       pageHTML += renderLvlPage(2);
       break;
   }
   wrapper.innerHTML = pageHTML;
+
+  if (spaState.pagename === "1") {
+    attachGameLevel1Handlers();
+  }
+}
+
+function attachGameLevel1Handlers() {
+  document.querySelectorAll(".game .item").forEach((box) => {
+    box.onclick = function () {
+      box.classList.add("boxOpen");
+      setTimeout(function () {
+        if (document.querySelectorAll(".boxOpen").length - 1) {
+          if (
+            document.querySelectorAll(".boxOpen")[0]?.innerHTML ===
+            document.querySelectorAll(".boxOpen")[1]?.innerHTML
+          ) {
+            document.querySelectorAll(".boxOpen")[0]?.classList.add("boxMatch");
+            document.querySelectorAll(".boxOpen")[1]?.classList.add("boxMatch");
+            document
+              .querySelectorAll(".boxOpen")[1]
+              ?.classList.remove("boxOpen");
+            document
+              .querySelectorAll(".boxOpen")[0]
+              ?.classList.remove("boxOpen");
+            if (
+              document.querySelectorAll(".boxMatch").length === pictures.length
+            ) {
+              alert("win");
+            }
+          } else {
+            document
+              .querySelectorAll(".boxOpen")[1]
+              ?.classList.remove("boxOpen");
+            document
+              .querySelectorAll(".boxOpen")[0]
+              ?.classList.remove("boxOpen");
+          }
+        }
+      }, 500);
+    };
+  });
+}
+
+function renderGameLevel1() {
+  let div = document.createElement("div");
+  div.classList.add("game");
+  sortPictures.forEach((i) => {
+    let img = document.createElement("img");
+    let box = document.createElement("div");
+    box.className = "item";
+    img.setAttribute("src", i);
+    img.draggable = false;
+    box.appendChild(img);
+    div.appendChild(box);
+  });
+
+  let game = div.outerHTML;
+  return `${game} ${renderLvlPage(1)}`;
+}
+
+function attachGameLevel1Handlers() {
+  const arr = [];
+  const elements = document.querySelectorAll(".game .item");
+  document.querySelectorAll(".game .item").forEach((box, i) => {
+    box.onclick = function () {
+      box.classList.add("boxOpen");
+      arr.push(i);
+      if (arr.length < 2) {
+        console.log(elements[i]);
+      }
+      console.log(arr);
+      if (document.querySelectorAll(".boxOpen").length === 2) {
+        console.log("1");
+        if (
+          document.querySelectorAll(".boxOpen")[0]?.innerHTML ===
+          document.querySelectorAll(".boxOpen")[1]?.innerHTML
+        ) {
+          console.log("2");
+          document.querySelectorAll(".boxOpen")[0]?.classList.add("boxMatch");
+          document.querySelectorAll(".boxOpen")[1]?.classList.add("boxMatch");
+          document.querySelectorAll(".boxOpen")[1]?.classList.remove("boxOpen");
+          document.querySelectorAll(".boxOpen")[0]?.classList.remove("boxOpen");
+          if (
+            document.querySelectorAll(".boxMatch").length === pictures.length
+          ) {
+            alert("win");
+          }
+        } else {
+          document.querySelectorAll(".boxOpen")[1].classList.remove("boxOpen");
+          document.querySelectorAll(".boxOpen")[0].classList.remove("boxOpen");
+        }
+      }
+    };
+  });
+}
+
+function renderGameLevel1() {
+  let div = document.createElement("div");
+  div.classList.add("game");
+  sortPictures.forEach((i) => {
+    let img = document.createElement("img");
+    let box = document.createElement("div");
+    box.className = "item";
+    img.setAttribute("src", i);
+    img.draggable = false;
+    box.appendChild(img);
+    div.style.width = `450px`;
+    div.style.height = `450px`;
+    div.appendChild(box);
+  });
+
+  let game = div.outerHTML;
+  return `${game} ${renderLvlPage(1)}`;
 }
 
 function switchToState(newState) {
