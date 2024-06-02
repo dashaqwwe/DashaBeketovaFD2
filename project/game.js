@@ -112,42 +112,6 @@ function renderGameLevel1() {
   return `${game} ${renderLvlPage(1)}`;
 }
 
-function attachGameLevel1Handlers() {
-  const arr = [];
-  const elements = document.querySelectorAll(".game .item");
-  document.querySelectorAll(".game .item").forEach((box, i) => {
-    box.onclick = function () {
-      box.classList.add("boxOpen");
-      arr.push(i);
-      if (arr.length < 2) {
-        console.log(elements[i]);
-      }
-      console.log(arr);
-      if (document.querySelectorAll(".boxOpen").length === 2) {
-        console.log("1");
-        if (
-          document.querySelectorAll(".boxOpen")[0]?.innerHTML ===
-          document.querySelectorAll(".boxOpen")[1]?.innerHTML
-        ) {
-          console.log("2");
-          document.querySelectorAll(".boxOpen")[0]?.classList.add("boxMatch");
-          document.querySelectorAll(".boxOpen")[1]?.classList.add("boxMatch");
-          document.querySelectorAll(".boxOpen")[1]?.classList.remove("boxOpen");
-          document.querySelectorAll(".boxOpen")[0]?.classList.remove("boxOpen");
-          if (
-            document.querySelectorAll(".boxMatch").length === pictures.length
-          ) {
-            alert("win");
-          }
-        } else {
-          document.querySelectorAll(".boxOpen")[1].classList.remove("boxOpen");
-          document.querySelectorAll(".boxOpen")[0].classList.remove("boxOpen");
-        }
-      }
-    };
-  });
-}
-
 function renderGameLevel1() {
   let div = document.createElement("div");
   div.classList.add("game");
@@ -228,53 +192,6 @@ function renderLvlPage(lvl) {
 }
 
 switchToStateFromURLHash();
-
-// sortPictures.forEach((i) => {
-//   let img = document.createElement("img");
-//   let box = document.createElement("div");
-//   box.className = "item";
-//   img.setAttribute("src", i);
-//   img.draggable = false;
-//   box.appendChild(img);
-//   game.appendChild(box);
-
-//   box.addEventListener("click", () => {
-//     box.classList.add("boxOpen");
-//     setTimeout(function () {
-//       try {
-//         if (document.querySelectorAll(".boxOpen").length - 1) {
-//           if (
-//             document.querySelectorAll(".boxOpen")[0].innerHTML ==
-//             document.querySelectorAll(".boxOpen")[1].innerHTML
-//           ) {
-//             document.querySelectorAll(".boxOpen")[0].classList.add("boxMatch");
-//             document.querySelectorAll(".boxOpen")[1].classList.add("boxMatch");
-//             document
-//               .querySelectorAll(".boxOpen")[1]
-//               .classList.remove("boxOpen");
-//             document
-//               .querySelectorAll(".boxOpen")[0]
-//               .classList.remove("boxOpen");
-//             if (
-//               document.querySelectorAll(".boxMatch").length == pictures.length
-//             ) {
-//               alert("win");
-//             }
-//           } else {
-//             document
-//               .querySelectorAll(".boxOpen")[1]
-//               .classList.remove("boxOpen");
-//             document
-//               .querySelectorAll(".boxOpen")[0]
-//               .classList.remove("boxOpen");
-//           }
-//         }
-//       } catch (e) {
-//         console.log(e);
-//       }
-//     }, 500);
-//   });
-// });
 
 function resetPage() {
   window.location.reload();
