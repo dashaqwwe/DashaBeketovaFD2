@@ -17,23 +17,74 @@ let pictures = [
   "images/img-8.png",
 ];
 
+let picturesTwo = [
+  "images/img-9.png",
+  "images/img-9.png",
+  "images/img-10.png",
+  "images/img-10.png",
+  "images/img-11.png",
+  "images/img-11.png",
+  "images/img-12.png",
+  "images/img-12.png",
+  "images/img-13.png",
+  "images/img-13.png",
+  "images/img-14.png",
+  "images/img-14.png",
+  "images/img-15.png",
+  "images/img-15.png",
+  "images/img-16.png",
+  "images/img-16.png",
+  "images/img-17.png",
+  "images/img-17.png",
+  "images/img-18.png",
+  "images/img-18.png",
+  "images/img-19.png",
+  "images/img-19.png",
+  "images/img-20.png",
+  "images/img-20.png",
+  "images/img-21.png",
+  "images/img-21.png",
+  "images/img-22.png",
+  "images/img-22.png",
+  "images/img-23.png",
+  "images/img-23.png",
+  "images/img-24.png",
+  "images/img-24.png",
+];
+
 let sortPictures = pictures.sort(() => (Math.random() > 0.5 ? 2 : -1));
 
-window.onhashchange = switchToStateFromURLHash;
+let sortPicturesTwo = picturesTwo.sort(() => (Math.random() > 0.5 ? 2 : -1));
+
+const myaudio = document.getElementById("myaudio");
+function switchSound() {
+  const musicBtn = document.querySelector(".musicBtn");
+  if (myaudio.paused == true) {
+    myaudio.play();
+    musicBtn.textContent = "Music off";
+  } else if (myaudio.paused == false) {
+    myaudio.pause();
+    musicBtn.textContent = "Music on";
+  }
+}
 
 const wrapper = document.getElementById("page-wrapper");
+
+window.onhashchange = switchToStateFromURLHash;
 
 let spaState = {};
 
 function switchToStateFromURLHash() {
   const URLHash = window.location.hash;
   const stateStr = URLHash.substring(1);
+
   if (stateStr !== "") {
     let parts = stateStr.split("_");
     spaState = { pagename: parts[0] };
   } else spaState = { pagename: "Main" };
 
   let pageHTML = "";
+
   switch (spaState.pagename) {
     case "Settings":
       pageHTML += renderSettingPage();
@@ -45,90 +96,112 @@ function switchToStateFromURLHash() {
       pageHTML += renderGamePage();
       break;
     case "1":
-      pageHTML += renderGameLevel1();
+      pageHTML += renderGameLevel(1);
       break;
     case "2":
-      pageHTML += renderLvlPage(2);
+      pageHTML += renderGameLevel(2);
       break;
   }
-  wrapper.innerHTML = pageHTML;
 
-  if (spaState.pagename === "1") {
-    attachGameLevel1Handlers();
-  }
+  wrapper.innerHTML = pageHTML;
+  if (spaState.pagename == 1) {
+    attachGameLevel1Handlers(1);
+  } else attachGameLevel1Handlers(2);
 }
 
-function attachGameLevel1Handlers() {
+let openCards = [];
+
+function checkForMatch(lvl) {
+  const [firstCard, secondCard] = openCards;
+
+  if (firstCard.innerHTML === secondCard.innerHTML) {
+    firstCard.classList.add("boxMatch");
+    secondCard.classList.add("boxMatch");
+    firstCard.classList.remove("boxOpen");
+    secondCard.classList.remove("boxOpen");
+  }
+
+  if (lvl == 1) {
+    if (document.querySelectorAll(".boxMatch").length === pictures.length) {
+      setTimeout(() => {
+        alert("win");
+      }, 500);
+    } else {
+      setTimeout(() => {
+        firstCard.classList.remove("boxOpen");
+        secondCard.classList.remove("boxOpen");
+      }, 500);
+    }
+  } else {
+    if (document.querySelectorAll(".boxMatch").length === picturesTwo.length) {
+      setTimeout(() => {
+        alert("win");
+      }, 500);
+    } else {
+      setTimeout(() => {
+        firstCard.classList.remove("boxOpen");
+        secondCard.classList.remove("boxOpen");
+      }, 500);
+    }
+  }
+
+  openCards = [];
+}
+
+function attachGameLevel1Handlers(lvl) {
   document.querySelectorAll(".game .item").forEach((box) => {
     box.onclick = function () {
-      box.classList.add("boxOpen");
-      setTimeout(function () {
-        if (document.querySelectorAll(".boxOpen").length - 1) {
-          if (
-            document.querySelectorAll(".boxOpen")[0]?.innerHTML ===
-            document.querySelectorAll(".boxOpen")[1]?.innerHTML
-          ) {
-            document.querySelectorAll(".boxOpen")[0]?.classList.add("boxMatch");
-            document.querySelectorAll(".boxOpen")[1]?.classList.add("boxMatch");
-            document
-              .querySelectorAll(".boxOpen")[1]
-              ?.classList.remove("boxOpen");
-            document
-              .querySelectorAll(".boxOpen")[0]
-              ?.classList.remove("boxOpen");
-            if (
-              document.querySelectorAll(".boxMatch").length === pictures.length
-            ) {
-              alert("win");
-            }
-          } else {
-            document
-              .querySelectorAll(".boxOpen")[1]
-              ?.classList.remove("boxOpen");
-            document
-              .querySelectorAll(".boxOpen")[0]
-              ?.classList.remove("boxOpen");
-          }
+      if (
+        openCards.length < 2 &&
+        !box.classList.contains("boxOpen") &&
+        !box.classList.contains("boxMatch")
+      ) {
+        box.classList.add("boxOpen");
+        openCards.push(box);
+
+        if (openCards.length === 2) {
+          if (lvl == 1) {
+            checkForMatch(1);
+          } else checkForMatch(2);
         }
-      }, 500);
+      }
     };
   });
 }
 
-function renderGameLevel1() {
+function renderGameLevel(lvl) {
   let div = document.createElement("div");
   div.classList.add("game");
-  sortPictures.forEach((i) => {
-    let img = document.createElement("img");
-    let box = document.createElement("div");
-    box.className = "item";
-    img.setAttribute("src", i);
-    img.draggable = false;
-    box.appendChild(img);
-    div.appendChild(box);
-  });
+
+  if (lvl == 1) {
+    sortPictures.forEach((i) => {
+      let img = document.createElement("img");
+      let box = document.createElement("div");
+      box.className = "item";
+      img.setAttribute("src", i);
+      img.draggable = false;
+      box.appendChild(img);
+      div.style.width = `430px`;
+      div.style.height = `430px`;
+      div.appendChild(box);
+    });
+  } else {
+    sortPicturesTwo.forEach((i) => {
+      let img = document.createElement("img");
+      let box = document.createElement("div");
+      box.className = "item";
+      img.setAttribute("src", i);
+      img.draggable = false;
+      box.appendChild(img);
+      div.style.width = `870px`;
+      div.style.height = `430px`;
+      div.appendChild(box);
+    });
+  }
 
   let game = div.outerHTML;
-  return `${game} ${renderLvlPage(1)}`;
-}
 
-function renderGameLevel1() {
-  let div = document.createElement("div");
-  div.classList.add("game");
-  sortPictures.forEach((i) => {
-    let img = document.createElement("img");
-    let box = document.createElement("div");
-    box.className = "item";
-    img.setAttribute("src", i);
-    img.draggable = false;
-    box.appendChild(img);
-    div.style.width = `450px`;
-    div.style.height = `450px`;
-    div.appendChild(box);
-  });
-
-  let game = div.outerHTML;
-  return `${game} ${renderLvlPage(1)}`;
+  return `${game} ${renderLvlPage()}`;
 }
 
 function switchToState(newState) {
@@ -179,32 +252,14 @@ function switchToLevelPage(lvl) {
   switchToState({ pagename: lvl });
 }
 
-function renderLvlPage(lvl) {
-  if (lvl == 1) {
-    return `
+function renderLvlPage() {
+  return `
     <button onclick='resetPage()'>Reset</button>
     <button class='menuBtn' onclick='switchToGamePage()'>Back to levels</button>`;
-  } else {
-    return `
-    <button onclick='resetPage()'>Reset</button>
-    <button class='menuBtn' onclick='switchToGamePage()'>Back to levels</button>`;
-  }
 }
 
 switchToStateFromURLHash();
 
 function resetPage() {
   window.location.reload();
-}
-
-const myaudio = document.getElementById("myaudio");
-function switchSound() {
-  const musicBtn = document.querySelector(".musicBtn");
-  if (myaudio.paused == true) {
-    myaudio.play();
-    musicBtn.textContent = "Music off";
-  } else if (myaudio.paused == false) {
-    myaudio.pause();
-    musicBtn.textContent = "Music on";
-  }
 }
