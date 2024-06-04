@@ -208,9 +208,9 @@ function renderGameLevel(lvl) {
       let img = document.createElement("img");
       let box = document.createElement("div");
       box.className = "item";
-      box.classList.add('two')
+      box.classList.add("two");
       img.setAttribute("src", i);
-      img.classList.add('two')
+      img.classList.add("two");
       img.draggable = false;
       box.appendChild(img);
       div.style.width = `870px`;
