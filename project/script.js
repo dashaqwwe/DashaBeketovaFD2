@@ -204,10 +204,13 @@ function renderGameLevel(lvl) {
     });
   } else {
     sortPicturesTwo.forEach((i) => {
+      div.classList.add("two");
       let img = document.createElement("img");
       let box = document.createElement("div");
       box.className = "item";
+      box.classList.add('two')
       img.setAttribute("src", i);
+      img.classList.add('two')
       img.draggable = false;
       box.appendChild(img);
       div.style.width = `870px`;
@@ -267,5 +270,3 @@ function renderLvlPage() {
 }
 
 switchToStateFromURLHash();
-
-

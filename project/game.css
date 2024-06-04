@@ -39,6 +39,11 @@ body #page-wrapper span {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+@media (max-width: 600px) {
+  body #page-wrapper span {
+    font-size: 2em;
+  }
+}
 body #page-wrapper button {
   padding: 15px 20px;
   color: white;
@@ -61,13 +66,29 @@ body #page-wrapper button:focus {
 body #page-wrapper button.settings {
   padding: 10px 15px;
 }
+@media (max-width: 600px) {
+  body #page-wrapper button.settings {
+    padding: 5px 10px;
+  }
+}
 body #page-wrapper button.menuBtn {
   padding: 10px 15px;
+}
+@media (max-width: 600px) {
+  body #page-wrapper button.menuBtn {
+    padding: 5px 10px;
+  }
+}
+@media (max-width: 600px) {
+  body #page-wrapper button {
+    padding: 10px 15px;
+  }
 }
 body #page-wrapper .game {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   transform-style: preserve-3d;
   perspective: 500px;
@@ -82,12 +103,36 @@ body #page-wrapper .game .item {
   transition: 0.25s;
   transform: rotateY(180deg);
 }
+@media (max-width: 600px) {
+  body #page-wrapper .game .item {
+    width: 65px;
+    height: 65px;
+  }
+}
+@media (max-width: 1025px) {
+  body #page-wrapper .game .item.two {
+    width: 65px;
+    height: 65px;
+  }
+}
 body #page-wrapper .game .item img {
   width: 100px;
   height: 100px;
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+}
+@media (max-width: 600px) {
+  body #page-wrapper .game .item img {
+    width: 65px;
+    height: 65px;
+  }
+}
+@media (max-width: 1025px) {
+  body #page-wrapper .game .item img.two {
+    width: 65px;
+    height: 65px;
+  }
 }
 body #page-wrapper .game .item::after {
   content: "";
@@ -111,4 +156,22 @@ body #page-wrapper .game .item.boxOpen::after {
 }
 body #page-wrapper .game .item.boxMatch::after {
   transform: rotateY(180deg);
+}
+@media (max-width: 600px) {
+  body #page-wrapper .game {
+    width: 290px !important;
+    height: 400px !important;
+  }
+}
+@media (max-width: 1025px) {
+  body #page-wrapper .game.two {
+    width: 590px !important;
+    height: 400px !important;
+  }
+}
+@media (max-width: 750px) {
+  body #page-wrapper .game.two {
+    width: 290px !important;
+    height: 590px !important;
+  }
 }/*# sourceMappingURL=game.css.map */
