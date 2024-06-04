@@ -68,11 +68,24 @@ function switchSound() {
   }
 }
 
+function changeOpacity() {
+  document.querySelectorAll(".game .item").forEach(() => {
+    setTimeout(() => {
+      $(".item").addClass("changeOpacity");
+    }, 1000);
+  });
+}
+
+function resetPage() {
+  window.location.reload();
+}
+
 const wrapper = document.getElementById("page-wrapper");
 
 window.onhashchange = switchToStateFromURLHash;
 
 let spaState = {};
+let openCards = [];
 
 function switchToStateFromURLHash() {
   const URLHash = window.location.hash;
@@ -111,14 +124,9 @@ function switchToStateFromURLHash() {
   changeOpacity();
 }
 
-let openCards = [];
-
-function changeOpacity() {
-  document.querySelectorAll(".game .item").forEach(() => {
-    setTimeout(() => {
-      $(".item").addClass("changeOpacity");
-    }, 1000);
-  });
+function switchToState(newState) {
+  const stateStr = newState.pagename;
+  location.hash = stateStr;
 }
 
 function checkForMatch(lvl) {
@@ -157,7 +165,6 @@ function checkForMatch(lvl) {
 
   openCards = [];
 }
-
 function attachGameLevel1Handlers(lvl) {
   document.querySelectorAll(".game .item").forEach((box) => {
     box.onclick = function () {
@@ -178,7 +185,7 @@ function attachGameLevel1Handlers(lvl) {
     };
   });
 }
-
+////
 function renderGameLevel(lvl) {
   let div = document.createElement("div");
   div.classList.add("game");
@@ -213,26 +220,19 @@ function renderGameLevel(lvl) {
 
   return `${game} ${renderLvlPage()}`;
 }
-
-function switchToState(newState) {
-  const stateStr = newState.pagename;
-  location.hash = stateStr;
-}
-
+////
 function switchToMainPage() {
   switchToState({ pagename: "Main" });
 }
-
 function renderMainPage() {
   return ` <span>Memory Game</span>
   <button onclick='switchToGamePage()'>Start Game</button>
   <button class='settings' onclick='switchToSettingsPage()'>Settings</button>`;
 }
-
+////
 function switchToGamePage() {
   switchToState({ pagename: "Game" });
 }
-
 function renderGamePage() {
   let levels = {
     1: { lvl: "Level_1", comment: "Level 1" },
@@ -247,21 +247,19 @@ function renderGamePage() {
   }
   return `${spanStr + levelStr + backStr}`;
 }
-
+////
 function switchToSettingsPage() {
   switchToState({ pagename: "Settings" });
 }
-
 function renderSettingPage() {
   return `<span>Memory Game</span>
   <button class='musicBtn' onclick='switchSound()'>Music on</button>
   <button class='menuBtn' onclick='switchToMainPage()'>Back to menu</button>`;
 }
-
+////
 function switchToLevelPage(lvl) {
   switchToState({ pagename: lvl });
 }
-
 function renderLvlPage() {
   return `
     <button onclick='resetPage()'>Reset</button>
@@ -270,15 +268,4 @@ function renderLvlPage() {
 
 switchToStateFromURLHash();
 
-function resetPage() {
-  window.location.reload();
-}
 
-// function f(x, y) {
-//   debugger
-//   if (x > y) return 0;
-//   if (x == y) return 1;
-//   return f(x + 1, y) + f(x + 2, y) + f(x * 4, y);
-// }
-
-// console.log(f(2, 6));
