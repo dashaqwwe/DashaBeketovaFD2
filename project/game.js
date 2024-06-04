@@ -106,10 +106,20 @@ function switchToStateFromURLHash() {
   wrapper.innerHTML = pageHTML;
   if (spaState.pagename == 1) {
     attachGameLevel1Handlers(1);
+    changeOpacity();
   } else attachGameLevel1Handlers(2);
+  changeOpacity();
 }
 
 let openCards = [];
+
+function changeOpacity() {
+  document.querySelectorAll(".game .item").forEach(() => {
+    setTimeout(() => {
+      $(".item").addClass("changeOpacity");
+    }, 1000);
+  });
+}
 
 function checkForMatch(lvl) {
   const [firstCard, secondCard] = openCards;
@@ -233,7 +243,7 @@ function renderGamePage() {
   let backStr = `<button class='menuBtn' onclick='switchToMainPage()'>Back to menu</button>`;
   for (let id in levels) {
     let lvl = levels[id];
-    levelStr += `<button onclick='switchToLevelPage(${id})'>${lvl.comment}</button>`;
+    levelStr += `<button class='changeBtn' onclick='switchToLevelPage(${id})'>${lvl.comment}</button>`;
   }
   return `${spanStr + levelStr + backStr}`;
 }
@@ -263,3 +273,12 @@ switchToStateFromURLHash();
 function resetPage() {
   window.location.reload();
 }
+
+// function f(x, y) {
+//   debugger
+//   if (x > y) return 0;
+//   if (x == y) return 1;
+//   return f(x + 1, y) + f(x + 2, y) + f(x * 4, y);
+// }
+
+// console.log(f(2, 6));

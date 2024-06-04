@@ -29,42 +29,13 @@ body {
     gap: 30px;
     padding: 40px 60px;
     border-radius: 25px;
+    transition: 1s;
     span {
       font-size: 3em;
       color: #69b7eb;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
-    // input[type="button"] {
-    //   padding: 10px 15px;
-    //   color: white;
-    //   background-color: #69b7eb;
-    //   border: none;
-    //   font-size: 1em;
-    //   letter-spacing: 0.5em;
-    //   text-transform: uppercase;
-    //   cursor: pointer;
-    //   font-weight: 600;
-    //   &:focus {
-    //     color: #69b7eb;
-    //     background-color: white;
-    //   }
-    // }
-    // .musicBtn {
-    //   padding: 5px 10px;
-    //   color: white;
-    //   background-color: #69b7eb;
-    //   border: none;
-    //   font-size: 1em;
-    //   letter-spacing: 0.5em;
-    //   text-transform: uppercase;
-    //   cursor: pointer;
-    //   font-weight: 600;
-    //   &:hover {
-    //     color: #69b7eb;
-    //     background-color: white;
-    //   }
-    // }
     button {
       padding: 15px 20px;
       color: white;
@@ -75,6 +46,12 @@ body {
       text-transform: uppercase;
       cursor: pointer;
       font-weight: 600;
+      transition: 1s;
+      &.changeBtn {
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
       &:focus {
         color: #69b7eb;
         background-color: white;
@@ -87,8 +64,6 @@ body {
       }
     }
     .game {
-      // width: 450px;
-      // height: 450px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -120,6 +95,11 @@ body {
           transition: 0.25s;
           transform: rotateY(0deg);
           backface-visibility: hidden;
+          opacity: 0;
+        }
+        &.changeOpacity::after {
+          opacity: 1;
+          transition: 0.5s;
         }
         &.boxOpen {
           transform: rotateY(0deg);

@@ -31,6 +31,7 @@ body #page-wrapper {
   gap: 30px;
   padding: 40px 60px;
   border-radius: 25px;
+  transition: 1s;
 }
 body #page-wrapper span {
   font-size: 3em;
@@ -48,6 +49,10 @@ body #page-wrapper button {
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 600;
+  transition: 1s;
+}
+body #page-wrapper button.changeBtn:hover {
+  transform: scale(1.2);
 }
 body #page-wrapper button:focus {
   color: #69b7eb;
@@ -92,6 +97,11 @@ body #page-wrapper .game .item::after {
   transition: 0.25s;
   transform: rotateY(0deg);
   backface-visibility: hidden;
+  opacity: 0;
+}
+body #page-wrapper .game .item.changeOpacity::after {
+  opacity: 1;
+  transition: 0.5s;
 }
 body #page-wrapper .game .item.boxOpen {
   transform: rotateY(0deg);
