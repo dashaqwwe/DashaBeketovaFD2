@@ -185,7 +185,7 @@ function attachGameLevel1Handlers(lvl) {
     };
   });
 }
-////
+
 function renderGameLevel(lvl) {
   let div = document.createElement("div");
   div.classList.add("game");
@@ -220,7 +220,7 @@ function renderGameLevel(lvl) {
 
   return `${game} ${renderLvlPage()}`;
 }
-////
+
 function switchToMainPage() {
   switchToState({ pagename: "Main" });
 }
@@ -229,7 +229,7 @@ function renderMainPage() {
   <button onclick='switchToGamePage()'>Start Game</button>
   <button class='settings' onclick='switchToSettingsPage()'>Settings</button>`;
 }
-////
+
 function switchToGamePage() {
   switchToState({ pagename: "Game" });
 }
@@ -247,7 +247,7 @@ function renderGamePage() {
   }
   return `${spanStr + levelStr + backStr}`;
 }
-////
+
 function switchToSettingsPage() {
   switchToState({ pagename: "Settings" });
 }
@@ -256,7 +256,7 @@ function renderSettingPage() {
   <button class='musicBtn' onclick='switchSound()'>Music on</button>
   <button class='menuBtn' onclick='switchToMainPage()'>Back to menu</button>`;
 }
-////
+
 function switchToLevelPage(lvl) {
   switchToState({ pagename: lvl });
 }
