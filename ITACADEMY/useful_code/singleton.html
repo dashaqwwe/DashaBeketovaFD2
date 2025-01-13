@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Singleton {
+        constructor() {
+          if (Singleton.instance) {
+            return Singleton.instance;
+          }
+
+          this.data = "Singleton Instance Data";
+
+          // Сохраняем ссылку на текущий экземпляр
+          Singleton.instance = this;
+
+          // Возвращаем созданный экземпляр
+          return this;
+        }
+
+        // Метод для получения данных
+        getData() {
+          return this.data;
+        }
+
+        // Метод для установки данных
+        setData(data) {
+          this.data = data;
+        }
+      }
+
+      // Использование Singleton
+      const instance1 = new Singleton();
+      console.log(instance1.getData()); // "Singleton Instance Data"
+
+      const instance2 = new Singleton();
+      instance2.setData("Updated Singleton Data");
+
+      console.log(instance1.getData()); // "Updated Singleton Data"
+      console.log(instance1 === instance2); // true, оба экземпляра указывают на один и тот же объект\
+
+      //Как это работает:
+      //В классе Singleton проверяется, был ли уже создан экземпляр класса. Если экземпляр уже существует, возвращается существующий объект (строка if (Singleton.instance) { return Singleton.instance; }).
+      //Если экземпляра ещё нет, создаётся новый объект, и он сохраняется в статическом свойстве Singleton.instance, чтобы все последующие запросы возвращали тот же самый экземпляр.
+      //В результате, независимо от того, сколько раз вы пытаетесь создать новый экземпляр Singleton, всегда будет возвращаться один и тот же объект.
+    </script>
+  </body>
+</html>

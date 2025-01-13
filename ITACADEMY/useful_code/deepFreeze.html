@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function deepFreeze(obj) {
+        // Получаем имена свойств из объекта obj
+        var propNames = Object.getOwnPropertyNames(obj);
+
+        // Замораживаем свойства для заморозки самого объекта
+        propNames.forEach(function (name) {
+          var prop = obj[name];
+
+          // Заморозка свойства prop, если оно объект
+          if (typeof prop == "object" && prop !== null) deepFreeze(prop);
+        });
+
+        // Заморозить сам объект obj (ничего не произойдёт, если он уже заморожен)
+        return Object.freeze(obj);
+      }
+    </script>
+  </body>
+</html>

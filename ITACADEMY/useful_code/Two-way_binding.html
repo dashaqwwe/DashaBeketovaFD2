@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="myInput" />
+
+    <script>
+      let a = { b: "10" };
+
+      function bindData(object, propName, element) {
+        // Установить начальное значение элемента.
+        element.value = object[propName];
+
+        // Обновить объект при изменении элемента.
+        element.addEventListener("input", function (e) {
+          object[propName] = e.target.value;
+          console.log(object);
+        });
+
+        // Обновить элемент при изменении объекта.
+        Object.defineProperty(object, propName, {
+          get: function () {
+            return this["_" + propName];
+          },
+          set: function (value) {
+            this["_" + propName] = value;
+            element.value = value;
+          },
+        });
+      }
+
+      bindData(a, "b", document.getElementById("myInput"));
+    </script>
+  </body>
+</html>

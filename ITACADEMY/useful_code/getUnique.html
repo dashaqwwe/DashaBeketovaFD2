@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getUniqTags(tags) {
+        var results = [];
+
+        tags.forEach(function (value) {
+          value = value.trim();
+
+          if (results.indexOf(value) === -1) {
+            results.push(value);
+          }
+        });
+
+        return results;
+      }
+
+      console.log(
+        getUniqTags([
+          " слово",
+          "слово",
+          "  новое слово",
+          "новое слово  ",
+          "текст  ",
+        ])
+      );
+
+
+      
+      const arr = ["слово", "слово ", "новое слово", " новое слово", "текст"];
+
+      const sortArr = arr.filter(
+        (it, index) => index === arr.indexOf((it = it.trim()))
+      );
+
+      console.log(sortArr); // [ 'слово', 'новое слово', 'текст' ]
+    </script>
+  </body>
+</html>
